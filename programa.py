@@ -22,14 +22,6 @@ def Issamusduomenys():
  
 
  
-# a button widget which will open a
-# new window on button click
-btn = Button(window,
-             text ="Išsamūs duomenys",
-             command = Issamusduomenys)
-
-
-btn.grid(column=2, row=1)
 
 
 
@@ -68,12 +60,6 @@ def Ganyklos():
         lbl.grid(column=z, row=2)
 
 
-                 
-
-
-
-new_item.add_command(label='Ganyklos' , command = Ganyklos)
-
 def Nustatymai():
     Nustatymai=Toplevel (window)
     Nustatymai.title ("Nustatymai")
@@ -84,7 +70,6 @@ def Nustatymai():
     btn.grid(column=1, row=1)
 
 
-new_item.add_command(label='Nustatymai' , command = Nustatymai)
 
 
 
@@ -216,10 +201,6 @@ aa,bb,cc=(int(x) for x in siandienosdata.split('/'))
 if((aa-1)==a and bb==b and cc==c): print('labas') #neveikia int aa blogai kazkas
 
 
-
-
-
-
 temperatura=int(linecache.getline("test.txt",2))
 temperatura1=int(linecache.getline("test.txt",3))
 garsas=int(linecache.getline("test.txt",4))
@@ -231,6 +212,18 @@ window.title("Bitininko dienoraštis")
 window.geometry('700x800')
 menu = Menu(window)
 new_item = Menu(menu)
+new_item.add_command(label='Nustatymai' , command = Nustatymai)
+new_item.add_command(label='Ganyklos' , command = Ganyklos)
+
+# a button widget which will open a
+# new window on button click
+btn = Button(window,
+             text ="Išsamūs duomenys",
+             command = Issamusduomenys)
+
+
+btn.grid(column=2, row=1)
+
 menu.add_cascade(label='Opcijos', menu=new_item)
 window.config(menu=menu)
 lbl = Label(window, text="Svarbios šiandienos žinutės:      ")
